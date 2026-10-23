@@ -1,0 +1,92 @@
+<DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Cadastro de Acervo Bibliográfico</title>
+</head>
+
+<body>
+    <main>
+        <section>
+            <header>
+                <h2>CADASTRO DE REFERÊNCIA BIBLIOGRÁFICA</h2>
+                <p>Cadastre os livros recomendados para as disciplinas.</p>
+            </header>
+
+            <form action="/salvar-livro" method="POST">
+                <fieldset>
+                    <legend>Informações da Obra</legend>
+
+                        <p>
+                        <label for="titulo_livro">Titulo do Livros:</label>
+                        <input type="text" id="titulo_livro" name="titulo_livro" required>
+                        </p>  
+
+                        <p>
+                        <label for="autor">Autor(es):</label>
+                        <input type="text" id="autor" name="autor" required>
+                        </p>  
+
+                        <p>
+                        <label for="codigo_isbn">ISBN(13d dig.):</label>
+                        <input type="text" id="codigo_isbn" name="codigo_isbn" pattern="\d{3}-\d{2}-\d{5}-\d{2}-\d{1}"  
+                        title="Insira um ISBN-13 válido (ex: 978-85-33302-23-1)" placeholder="xxx-xx-xxxxx-xx-x" 
+                        inputmode="numeric" required>
+                        </p>  
+
+                        <p>
+                        <label for="ano_publicacao">Ano de Publicação:</label>
+                        <input type="number" id="ano_publicacao" name="ano_publicacao"
+                         min="1500" placeholder="EX:2026"  required>
+                        </p>  
+
+                </fieldset>
+
+                <fieldset>
+                    <legend>Detalhes Acadêmicos</legend>
+
+                       <p>
+                        <label for="curso_alvo">Curso Alvo:</label>
+                        <select id="curso_alvo" name="curso_alvo" 
+                        autocomplete="curso_alvo" required>
+                            <option value="">Selecione o curso</option>
+                            <option value="ES">Engenharia de Software</option>
+                            <option value="PD" selected>Pedagogia</option>
+                            <option value="FS">Fisioterapia</option>
+                            <option value="ADM">Administração</option>
+                            <option value="ADS">Analise e desenvolvimento de sistemas</option>
+                            <option value="DIR">Direito</option>
+                            <option value="ENF">Enfermagem</option>
+                            <option value="TC">Tronco Comun</option>
+                        </select>
+                        </p>  
+
+                        <p>
+                        <label for="dicisplina">Disciplina:</label>
+                        <input type="text" id="disciplina" name="disciplina" required>
+                        </p>  
+
+                      
+                        <p>
+                        <p>Formato: </p>
+                        <input type="radio" id="fisico" name="formato" value="Fisico" checked />        
+                        <label for="fisico">Fisico</label>
+                      
+                        <input type="radio" id="digital" name="formato" value="Digital" checked />        
+                        <label for="digital">Digital</label>
+
+                        <input type="radio" id="hibrido" name="formato" value="Hibrido" checked />        
+                        <label for="hibrido">Hibrido</label>
+                        </p>
+                        </p>
+                </fieldset>
+
+                <br>
+                <button type="submit">Salvar livro</button>
+            </form>
+        </section>
+    </main>    
+</body>
+
+</html>
